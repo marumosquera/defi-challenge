@@ -1,8 +1,11 @@
 import React from 'react'
 
+//style
+import "./ApproveButton.scss";
+
 const ApproveButton = () => {
   return (
-    <button>
+    <button className='approve-btn'>
         Approve
     </button>
   )

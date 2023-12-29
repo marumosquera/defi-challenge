@@ -1,9 +1,12 @@
 import React from "react";
 
+//styles
+import "./NavBar.scss";
+
 const NavBar = () => {
   return (
     <nav>
-      <div>DeFi</div>
+      <div className="logo">DeFi</div>
       <div>Connect wallet</div>
     </nav>
   );

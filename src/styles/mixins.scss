@@ -1,0 +1,33 @@
+@import "variables";
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+ @mixin button-styles {
+    background-color: $primary-btn-color;
+    color: $primary-color;
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
+    border: none;
+    border-radius: $border-radius;
+    font-size: $desktop-body-size;
+    cursor: pointer;
+    margin-top: 8px;
+    padding: 10px 24px 10px 24px;
+    width: 100%;
+    font-weight: $desktop-body-weight;
+        &:hover{
+            background-color: $secondary-btn-color;
+        }
+}
+
+@mixin input-container{
+    border-radius: 20px;
+    background: var(--black, #000);
+    padding: 1em;
+    width: 400px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}

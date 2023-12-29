@@ -1,0 +1,9 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.card-container {
+  @include flex-center;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.14);
+  padding: 1em;
+}

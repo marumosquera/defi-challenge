@@ -1,21 +1,25 @@
-import React from 'react'
-import TokenInput from '../TokenInput/TokenInput'
+import React from "react";
+import TokenInput from "../TokenInput/TokenInput";
+
+//styles
+import "./AmountDisplay.scss";
 
 const AmountDisplay = () => {
   return (
-    <div>
+    <div className="amount-container">
+      <span className="amount-title">select amount</span>
+      <div className="items-amount-container">
         <div>
-        <span>select amount</span>
-        <TokenInput/>
-        <span>balance:</span>
+          <TokenInput />
+          <span>balance:</span>
         </div>
-        <div>
-            <span>0,28</span>
-            <button>send all</button>
+        <div className="amount-selection">
+          <input type="number" placeholder="0.02" />
+          <button>all balance</button>
         </div>
-       
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default AmountDisplay
+export default AmountDisplay;

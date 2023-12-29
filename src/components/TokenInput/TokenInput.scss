@@ -1,0 +1,43 @@
+@import "../../styles/variables";
+
+.dropdown {
+    position: relative;
+    user-select: none;
+    border-radius: 20px;
+    width: fit-content;
+    min-width: 70px;
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: smaller;
+  }
+  
+  .dropdown-header {
+    padding: 7px;
+    border: 1px solid $secondary-color;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  
+  .dropdown-list {
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid $secondary-color;
+    background: black;
+    width: 100%;
+    z-index: 100;
+  }
+  
+  .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background-color: $detail-color;
+  }
+  
+
+  

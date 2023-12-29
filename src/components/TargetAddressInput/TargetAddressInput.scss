@@ -1,0 +1,22 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.target-address-container {
+   @include input-container;
+   display: grid;
+   span{
+      color: $secondary-color;
+   }
+   input {
+      flex-grow: 1;
+      padding: 5px 10px;
+      border: 1px solid $secondary-color;
+      background-color: black; 
+      border-radius: 20px; 
+      color: $primary-color;
+      &:focus {
+        outline: none;
+        border-color: $detail-color; 
+      }
+    }
+}

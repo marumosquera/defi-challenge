@@ -1,0 +1,20 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.home-section{
+    @include flex-center;
+    div{
+        h1{
+            font-size: $desktop-heading-size;
+            font-weight: $desktop-heading-weight;
+            margin: 0;
+        }
+        h2{
+            font-size: $desktop-subheading-size;
+            font-weight: $desktop-subheading-weight;
+            color: $secondary-color;
+            margin: 0;
+            text-align: center;
+        }
+    }
+}
