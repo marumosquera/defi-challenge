@@ -9,7 +9,7 @@ import Home from "./views/Home/Home";
 import NavBar from "./components/NavBar/NavBar";
 
 //web3modal
-import { createWeb3Modal, defaultConfig } from '@web3modal/ethers/react'
+import { createWeb3Modal, defaultConfig } from '@web3modal/ethers5/react';
 
 const projectId = '363721610931329f6838442ad6fc982a'
 
