@@ -2,8 +2,9 @@ import { ethers, Contract } from "ethers";
 import { daiAbi, usdcAbi } from "./abis";
 
 //Token can only be one of these options (dai or usdc)
-type Token = "DAI" | "USDC";
+export type Token = "DAI" | "USDC";
 
+//goerli addresses as of 29/12/2023
 const daiAddress = "0x1D70D57ccD2798323232B2dD027B3aBcA5C00091";
 const usdcAddress = "0xC891481A0AaC630F4D89744ccD2C7D2C4215FD47";
 
