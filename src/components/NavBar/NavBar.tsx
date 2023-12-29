@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <nav>
       <div className="logo">DeFi</div>
-      <div>Connect wallet</div>
+      <div><w3m-button /></div>
     </nav>
   );
 };
