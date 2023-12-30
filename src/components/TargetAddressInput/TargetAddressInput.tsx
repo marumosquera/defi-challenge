@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+
+//redux
 import { useDispatch } from "react-redux";
 import { setTargetAddress } from "../../redux/slice/TransactionSlice";
+
+//toast notify
 import { toast } from "react-toastify";
 import { isValidEthereumAddress } from "../../utils/services";
+
 //styles
 import "./TargetAddressInput.scss";
 
@@ -19,7 +24,7 @@ const TargetAddressInput: React.FC = () => {
   };
 
   const handleBlur = () => {
-    console.log(targetAddressInput.length)
+    console.log(targetAddressInput.length);
     if (!isValidEthereumAddress(targetAddressInput)) {
       toast.error("Please check the address");
     }

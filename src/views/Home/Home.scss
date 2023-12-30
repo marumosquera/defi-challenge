@@ -3,11 +3,16 @@
 
 .home-section{
     @include flex-center;
+    text-align: center;
     div{
         h1{
             font-size: $desktop-heading-size;
             font-weight: $desktop-heading-weight;
             margin: 0;
+            @media (max-width: 768px) {
+                font-size: $mobile-heading-size;
+                font-weight: $mobile-heading-size;
+            }   
         }
         h2{
             font-size: $desktop-subheading-size;
@@ -15,6 +20,10 @@
             color: $secondary-color;
             margin: 0;
             text-align: center;
+            @media (max-width: 768px) {
+                font-size: $mobile-subheading-size;
+                font-weight: $mobile-subheading-size;
+            }   
         }
     }
 }

@@ -16,7 +16,7 @@ import { createWeb3Modal, defaultConfig } from "@web3modal/ethers5/react";
 
 const projectId = "363721610931329f6838442ad6fc982a";
 
-// 2. Set chains
+// Set chains
 const goerli = {
   chainId: 5,
   name: "Goerli",
@@ -25,12 +25,12 @@ const goerli = {
   rpcUrl: "https://goerli.infura.io/v3/cf9d86fad8bb4748b45d0e27023c1e50",
 };
 
-// 3. Create modal
+//Create modal
 const metadata = {
   name: "DeFi Challenge",
   description: "DeFi transfer challenge",
-  url: "https://mywebsite.com",
-  icons: ["https://avatars.mywebsite.com/"],
+  url: "https://defi-challenge-seven.vercel.app/",
+  icons: ["https://avatars.defi-challenge-seven.vercel.app//"],
 };
 
 createWeb3Modal({

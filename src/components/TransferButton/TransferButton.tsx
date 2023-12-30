@@ -1,23 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+
+//toast notify
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { ethers } from "ethers";
+//web3
 import { send } from "../../utils/contract";
+import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
 
+//style
 import "./TransferButton.scss";
 
 //redux
 import { useSelector } from "react-redux";
 import { AppState } from "../../redux/store";
 
-import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
 const TransferButton: React.FC = () => {
   const [errorMsg, setErrorMsg] = useState<string>("ERROR");
   const [txInit, setTxInit] = useState<boolean>(false);
   const [txHash, setTxHash] = useState<string | undefined>(undefined);
   const [txConfirmed, setTxConfirmed] = useState<boolean>(false);
 
+  //tx data
   const currency = useSelector((state: AppState) => state.transaction.currency);
   const recipient = useSelector(
     (state: AppState) => state.transaction.targetAddress

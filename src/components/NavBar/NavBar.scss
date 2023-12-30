@@ -1,11 +1,16 @@
 @import "../../styles/variables.scss";
 
-nav{
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5em 2em;
-    .logo{
-        font-size: $desktop-heading-size;
-        font-weight: $desktop-heading-weight;
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 2em;
+  align-items: center;
+  .logo {
+    font-size: $desktop-heading-size;
+    font-weight: $desktop-heading-weight;
+    @media (max-width: 768px) {
+      font-size: $mobile-heading-size;
+      font-weight: $mobile-heading-weight;
     }
+  }
 }

@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+
+//toast notify
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+//web3
 import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
 import { approve } from "../../utils/contract";
 
+//style
 import "./ApproveButton.scss";
 
 //redux
@@ -16,6 +20,8 @@ const Approve: React.FC = () => {
   const [txInit, setTxInit] = useState<boolean>(false);
   const [txHash, setTxHash] = useState<string | undefined>(undefined);
   const [txConfirmed, setTxConfirmed] = useState<boolean>(false);
+
+  //tx data
   const currency = useSelector((state: AppState) => state.transaction.currency);
   const amount = useSelector((state: AppState) => state.transaction.amount);
   const { address } = useWeb3ModalAccount();
@@ -36,7 +42,6 @@ const Approve: React.FC = () => {
         setTxInit(false);
         setTxHash(undefined);
         setTxConfirmed(false);
-
         const errorMessage = e.error ? e.error.message : e.message;
         setErrorMsg(errorMessage);
         toast.error(errorMessage);

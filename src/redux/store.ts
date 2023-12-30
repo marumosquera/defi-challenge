@@ -1,6 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit';
-import walletSlice from './slice/WalletSlice';
-import transactionSlice from './slice/TransactionSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import walletSlice from "./slice/WalletSlice";
+import transactionSlice from "./slice/TransactionSlice";
 
 const store = configureStore({
   reducer: {

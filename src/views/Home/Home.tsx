@@ -1,5 +1,3 @@
-import React from "react";
-
 //components
 import CardContainer from "../../components/CardContainer/CardContainer";
 

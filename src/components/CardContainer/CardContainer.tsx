@@ -12,7 +12,7 @@ import "./CardContainer.scss";
 
 import { useWeb3ModalAccount } from '@web3modal/ethers5/react'
 
-const CardContainer = () => {
+const CardContainer: React.FC = () => {
   const { isConnected } = useWeb3ModalAccount()
   return (
     <section className="card-container">

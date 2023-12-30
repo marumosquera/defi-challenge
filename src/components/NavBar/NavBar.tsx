@@ -12,7 +12,7 @@ import "./NavBar.scss";
 import { useWeb3ModalAccount } from '@web3modal/ethers5/react'
 import { toast } from 'react-toastify';
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
   const { address, chainId } = useWeb3ModalAccount()
 

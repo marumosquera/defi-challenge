@@ -1,6 +1,9 @@
 import React from "react";
-import TokenInput from "../TokenInput/TokenInput";
 import { ethers } from "ethers";
+
+//components
+import TokenInput from "../TokenInput/TokenInput";
+
 //styles
 import "./AmountDisplay.scss";
 
@@ -11,8 +14,9 @@ import { setAmount } from "../../redux/slice/TransactionSlice";
 
 const AmountDisplay = () => {
   const daiBalance = useSelector((state: AppState) => state.wallet.daiBalance);
-  const usdcBalance = useSelector((state: AppState) => state.wallet.usdcBalance);
-  console.log(usdcBalance)
+  const usdcBalance = useSelector(
+    (state: AppState) => state.wallet.usdcBalance
+  );
   const currency = useSelector((state: AppState) => state.transaction.currency);
   const dispatch = useDispatch();
 

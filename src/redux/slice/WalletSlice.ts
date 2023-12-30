@@ -1,5 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchDaiAllowance, fetchUsdcAllowance, fetchDaiBalance, fetchUsdcBalance } from "../thunks/WalletThunks";
+import {
+  fetchDaiAllowance,
+  fetchUsdcAllowance,
+  fetchDaiBalance,
+  fetchUsdcBalance,
+} from "../thunks/WalletThunks";
 
 interface WalletState {
   isConnected: boolean;
@@ -42,20 +47,26 @@ export const walletSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchDaiBalance.fulfilled, (state, action) => {
-        state.daiBalance = action.payload; 
+        state.daiBalance = action.payload;
       })
       .addCase(fetchUsdcBalance.fulfilled, (state, action) => {
-        state.usdcBalance = action.payload; 
+        state.usdcBalance = action.payload;
       })
       .addCase(fetchDaiAllowance.fulfilled, (state, action) => {
-        state.daiAllowance = action.payload; 
+        state.daiAllowance = action.payload;
       })
       .addCase(fetchUsdcAllowance.fulfilled, (state, action) => {
-        state.usdcAllowance = action.payload; 
-      })
+        state.usdcAllowance = action.payload;
+      });
   },
 });
 
-export const { setWalletAddress, setDaiBalance, setUsdcBalance, setDaiAllowance, setUsdcAllowance } = walletSlice.actions;
+export const {
+  setWalletAddress,
+  setDaiBalance,
+  setUsdcBalance,
+  setDaiAllowance,
+  setUsdcAllowance,
+} = walletSlice.actions;
 
 export default walletSlice.reducer;

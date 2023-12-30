@@ -1,6 +1,9 @@
 import React, { useState, FC } from "react";
 
+//style
 import "./TokenInput.scss";
+
+//redux
 import { useDispatch } from "react-redux";
 import { setCurrency } from "../../redux/slice/TransactionSlice";
 
@@ -26,7 +29,6 @@ const TokenDropdown: FC = () => {
         {selectedCurrency
           ? options.find((option) => option.value === selectedCurrency)?.label
           : "DAI"}
-        
       </div>
       {isOpen && (
         <ul className="dropdown-list">
