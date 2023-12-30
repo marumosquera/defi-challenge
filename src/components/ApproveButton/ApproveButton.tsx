@@ -24,7 +24,7 @@ const Approve: React.FC = () => {
         console.log("txn =>", txn);
 
         const txnInfo = await txn.wait();
-        if (txnInfo.confirmations === 1) {
+        if (txnInfo.status === 1) {
           setTxConfirmed(true);
         }
       })
