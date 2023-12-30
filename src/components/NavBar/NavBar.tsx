@@ -8,20 +8,31 @@ import {ThunkDispatch} from "@reduxjs/toolkit";
 //styles
 import "./NavBar.scss";
 
+
+import { useWeb3ModalAccount } from '@web3modal/ethers5/react'
+import { toast } from 'react-toastify';
+
 const NavBar = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
-  const wallet = "0x09b2DcD8a88ECE53cbE2988c36CEFa79892F0019"
-  // const walletAddress = useSelector((state: AppState) => state.wallet.walletAddress);
+  const { address, chainId } = useWeb3ModalAccount()
 
   //fetching all relevant info from the smart contract
   useEffect(() => {
-    if (wallet) {
-      dispatch(fetchDaiBalance({ walletAddress: wallet , token: "DAI" }));
-      dispatch(fetchUsdcBalance({ walletAddress: wallet , token: "USDC" }));
-      dispatch(fetchDaiAllowance({ walletAddress: wallet,  address: wallet  , token: "DAI" }));
-      dispatch(fetchUsdcAllowance({ walletAddress: wallet,  address: wallet  , token: "USDC" }));
+    if (address) {
+      dispatch(fetchDaiBalance({ walletAddress: address , token: "DAI" }));
+      dispatch(fetchUsdcBalance({ walletAddress: address , token: "USDC" }));
+      dispatch(fetchDaiAllowance({ walletAddress: address,  address: address  , token: "DAI" }));
+      dispatch(fetchUsdcAllowance({ walletAddress: address,  address: address  , token: "USDC" }));
     }
-  }, [wallet, dispatch]);
+  }, [address, dispatch]);
+
+  //detect network
+  useEffect(() => {
+    if (chainId !== 5) {
+      toast.error("Wrong network, please change to goerli");
+    }
+  }, [chainId]);
+
   
   return (
     <nav>

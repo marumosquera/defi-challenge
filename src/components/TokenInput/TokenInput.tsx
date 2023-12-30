@@ -1,10 +1,13 @@
 import React, { useState, FC } from "react";
 
 import "./TokenInput.scss";
+import { useDispatch } from "react-redux";
+import { setCurrency } from "../../redux/slice/TransactionSlice";
 
 const TokenDropdown: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState<string>("");
+  const dispatch = useDispatch();
 
   const options = [
     { label: "USDC", value: "usdc" },
@@ -14,6 +17,7 @@ const TokenDropdown: FC = () => {
   const handleSelect = (value: string) => {
     setSelectedCurrency(value);
     setIsOpen(false);
+    dispatch(setCurrency(value.toUpperCase() as "DAI" | "USDC"));
   };
 
   return (
@@ -21,7 +25,7 @@ const TokenDropdown: FC = () => {
       <div className="dropdown-header" onClick={() => setIsOpen(!isOpen)}>
         {selectedCurrency
           ? options.find((option) => option.value === selectedCurrency)?.label
-          : "select a currency"}
+          : "DAI"}
         
       </div>
       {isOpen && (

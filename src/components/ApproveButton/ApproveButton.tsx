@@ -2,23 +2,27 @@ import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { ethers } from "ethers";
+import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
 import { approve } from "../../utils/contract";
 
 import "./ApproveButton.scss";
 
+//redux
+import { useSelector } from "react-redux";
+import { AppState } from "../../redux/store";
+
 const Approve: React.FC = () => {
   const [errorMsg, setErrorMsg] = useState<string>("ERROR");
-  const [ethAmount, setEthAmount] = useState<string>("0");
   const [txInit, setTxInit] = useState<boolean>(false);
   const [txHash, setTxHash] = useState<string | undefined>(undefined);
   const [txConfirmed, setTxConfirmed] = useState<boolean>(false);
-  const address = "0x09b2DcD8a88ECE53cbE2988c36CEFa79892F0019";
-
+  const currency = useSelector((state: AppState) => state.transaction.currency);
+  const amount = useSelector((state: AppState) => state.transaction.amount);
+  const { address } = useWeb3ModalAccount();
+  
   const approveTransaction = async () => {
-    const ethAmountParsed = parseFloat(ethAmount); // Convert ethAmount to a number
     setTxInit(true);
-    approve(address, ethers.utils.parseEther(ethAmount).toString(), "DAI") // Example usage
+    approve(address, amount, currency)
       .then(async (txn) => {
         setTxHash(txn.hash);
         console.log("txn =>", txn);

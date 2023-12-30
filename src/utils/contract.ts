@@ -34,22 +34,23 @@ export const initContracts = (token: Token): Contract | null => {
   return contract;
 };
 
+
 export const approve = async (
-  spender: string,
-  amount: string,
+  spender: `0x${string}` | string | undefined,
+  amount: string | undefined,
   token: Token
 ): Promise<Contract["approve"]> => {
   const contract = initContracts(token);
   if (!contract) {
     throw new Error("Contract not initialized");
   }
-  const approveTx = await contract.approve(spender, amount);
+  const approveTx = await contract.approve(spender, ethers.BigNumber.from(amount));
   return approveTx;
 };
 
 export const allowance = async (
-  owner: string,
-  spender: string,
+  owner: `0x${string}` | string,
+  spender: `0x${string}` | string,
   token: Token
 ): Promise<number> => {
   const contract = initContracts(token);
@@ -61,9 +62,9 @@ export const allowance = async (
 };
 
 export const send = async (
-  owner: string,
-  recipient: string,
-  amount: string,
+  owner: `0x${string}` | string | undefined,
+  recipient: `0x${string}` | string | undefined,
+  amount: string | undefined,
   token: Token
 ): Promise<Contract["transferFrom"]> => {
   const contract = initContracts(token);

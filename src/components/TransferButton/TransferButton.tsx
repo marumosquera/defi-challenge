@@ -7,22 +7,29 @@ import { send } from "../../utils/contract";
 
 import "./TransferButton.scss";
 
+//redux
+import { useSelector } from "react-redux";
+import { AppState } from "../../redux/store";
+
+import { useWeb3ModalAccount } from '@web3modal/ethers5/react'
 const TransferButton: React.FC = () => {
   const [errorMsg, setErrorMsg] = useState<string>("ERROR");
-  const [ethAmount, setEthAmount] = useState<string>("10");
   const [txInit, setTxInit] = useState<boolean>(false);
   const [txHash, setTxHash] = useState<string | undefined>(undefined);
   const [txConfirmed, setTxConfirmed] = useState<boolean>(false);
-  const address = "0x09b2DcD8a88ECE53cbE2988c36CEFa79892F0019";
+
+  const currency = useSelector((state: AppState) => state.transaction.currency);
+  const recipient = useSelector(
+    (state: AppState) => state.transaction.targetAddress
+  );
+  const { address } = useWeb3ModalAccount()
+  const amount = useSelector((state: AppState) => state.transaction.amount);
 
   const approveTransaction = async () => {
-    const ethAmountParsed = parseFloat(ethAmount); // Convert ethAmount to a number
     setTxInit(true);
-    send(address, address, ethers.utils.parseEther(ethAmount).toString(), "DAI") // Example usage
+    send(address, recipient, amount , currency)
       .then(async (txn) => {
         setTxHash(txn.hash);
-        console.log("txn =>", txn);
-
         const txnInfo = await txn.wait();
         if (txnInfo.status === 1) {
           setTxConfirmed(true);

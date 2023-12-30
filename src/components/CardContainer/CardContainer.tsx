@@ -10,15 +10,27 @@ import TransferButton from "../TransferButton/TransferButton";
 //styles
 import "./CardContainer.scss";
 
+import { useWeb3ModalAccount } from '@web3modal/ethers5/react'
+
 const CardContainer = () => {
+  const { isConnected } = useWeb3ModalAccount()
   return (
     <section className="card-container">
       <div>
       <AmountDisplay />
       <TargetAddressInput />
       <AllowanceDisplay />
-      <ApproveButton />
-      <TransferButton />
+      {isConnected 
+        ? <>
+         <ApproveButton />
+         <TransferButton />
+        </>
+        
+         : <>
+         <span>Please connect your wallet</span>
+         </>
+      }
+   
       </div>
 
     </section>

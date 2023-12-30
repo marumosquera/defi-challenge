@@ -1,19 +1,19 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface TransactionState {
-  sender: string | null;
-  targetAddress: string | null;
-  amount: number;
+  sender: string;
+  targetAddress: string;
+  amount: string | undefined;
   status: boolean;
-  currency: "DAI" | "USDC" | null;
+  currency: "DAI" | "USDC" ;
 }
 
 const initialState: TransactionState = {
-    sender: null,
-    targetAddress:  null,
-    amount: 0,
+    sender: "",
+    targetAddress:  "",
+    amount: "",
     status: false,
-    currency: null,
+    currency: "DAI",
 }
 
 
@@ -21,19 +21,19 @@ export const transactionSlice = createSlice({
     name: "transaction",
     initialState,
     reducers: {
-      setSender: (state, action: PayloadAction<string | null>) => {
+      setSender: (state, action: PayloadAction<string>) => {
         state.sender = action.payload;
       },
-      setTargetAddress: (state, action: PayloadAction<string | null>) => {
+      setTargetAddress: (state, action: PayloadAction<string>) => {
         state.targetAddress = action.payload;
       },
-      setAmount: (state, action: PayloadAction<number>) => {
+      setAmount: (state, action: PayloadAction<string | undefined>) => {
         state.amount = action.payload;
       },
       setStatus: (state, action: PayloadAction<boolean>) => {
         state.status = action.payload;
       },
-      setCurrency: (state, action: PayloadAction<"DAI" | "USDC" | null>) => {
+      setCurrency: (state, action: PayloadAction<"DAI" | "USDC">) => {
         state.currency = action.payload;
       },
     },
