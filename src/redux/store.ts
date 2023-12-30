@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import walletReducer from './slice/WalletSlice';
+import walletSlice from './slice/WalletSlice';
+import transactionSlice from './slice/TransactionSlice';
 
 const store = configureStore({
   reducer: {
-    wallet: walletReducer,
+    wallet: walletSlice,
+    transaction: transactionSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(),
 });
