@@ -1,38 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setTargetAddress } from "../../redux/slice/TransactionSlice";
+import { toast } from "react-toastify";
 
 //styles
 import "./TargetAddressInput.scss";
 
-//redux
-import { useDispatch } from "react-redux";
-import { setTargetAddress } from '../../redux/slice/TransactionSlice';
-
 const TargetAddressInput: React.FC = () => {
-  const [targetAddressInput, setTargetAddressInput] = useState('');
+  const [targetAddressInput, setTargetAddressInput] = useState("");
   const dispatch = useDispatch();
-  
-  const isValidAddress = (address: string): boolean => {
-    // A simple regex for basic Ethereum address validation
-    return /^0x[a-fA-F0-9]{40}$/.test(address);
+
+  const isValidEthereumAddress = (address: string): boolean => {
+    return address.startsWith("0x") && address.length === 42;
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
-    if (isValidAddress(input) || input === '') {
-      setTargetAddressInput(input);
-      dispatch(setTargetAddress(input as string))
+    setTargetAddressInput(input);
+    if (isValidEthereumAddress(input)) {
+      dispatch(setTargetAddress(input));
+    }
+  };
+
+  const handleBlur = () => {
+    console.log(targetAddressInput.length)
+    if (!isValidEthereumAddress(targetAddressInput)) {
+      toast.error("Please check the address");
     }
   };
 
   return (
-    <div className='target-address-container'>
-        <span>target address</span>
-        <input 
-          type="text"
-          value={targetAddressInput}
-          placeholder='0x09b2DcD8a88ECE53cbE2988c36CEFa79892F0019'
-          onChange={handleChange}
-        />
+    <div className="target-address-container">
+      <span>target address</span>
+      <input
+        type="text"
+        value={targetAddressInput}
+        placeholder="0x09b2DcD8a88ECE53cbE2988c36CEFa79892F0019"
+        onChange={handleChange}
+        onBlur={handleBlur}
+      />
     </div>
   );
 };

@@ -11,7 +11,7 @@ import "./TransferButton.scss";
 import { useSelector } from "react-redux";
 import { AppState } from "../../redux/store";
 
-import { useWeb3ModalAccount } from '@web3modal/ethers5/react'
+import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
 const TransferButton: React.FC = () => {
   const [errorMsg, setErrorMsg] = useState<string>("ERROR");
   const [txInit, setTxInit] = useState<boolean>(false);
@@ -22,12 +22,12 @@ const TransferButton: React.FC = () => {
   const recipient = useSelector(
     (state: AppState) => state.transaction.targetAddress
   );
-  const { address } = useWeb3ModalAccount()
+  const { address } = useWeb3ModalAccount();
   const amount = useSelector((state: AppState) => state.transaction.amount);
 
   const approveTransaction = async () => {
     setTxInit(true);
-    send(address, recipient, amount , currency)
+    send(address, recipient, amount, currency)
       .then(async (txn) => {
         setTxHash(txn.hash);
         const txnInfo = await txn.wait();
@@ -58,21 +58,28 @@ const TransferButton: React.FC = () => {
             </button>
           </div>
         ) : txHash ? (
-          <p>
-            Transaction is being processed. You can view your transaction
-            <a
-              href={`https://goerli.etherscan.io/tx/${txHash}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              here
-            </a>
-          </p>
+          <>
+            <p className="tx-info">Transaction is being processed.</p>
+            <p className="tx-info">
+              {" "}
+              You can view your transaction
+              <a
+                href={`https://goerli.etherscan.io/tx/${txHash}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="tx-info-link"
+              >
+                here
+              </a>
+            </p>
+          </>
         ) : (
-          <p>Confirm transaction in your wallet to proceed.</p>
+          <p className="tx-info">
+            Confirm transaction in your wallet to proceed.
+          </p>
         )
       ) : (
-        <p>Congratulations.</p>
+        <p className="tx-info">Congratulations.</p>
       )}
     </>
   );

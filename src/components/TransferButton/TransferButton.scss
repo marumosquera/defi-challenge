@@ -4,3 +4,12 @@
 .transfer-btn{
     @include button-styles;
 }
+
+.tx-info{
+    width: 100%;
+    font-size: smaller;
+    text-align: center;
+    .tx-info-link{
+        margin-left: 0.3em;
+    }
+}

@@ -19,7 +19,7 @@ const Approve: React.FC = () => {
   const currency = useSelector((state: AppState) => state.transaction.currency);
   const amount = useSelector((state: AppState) => state.transaction.amount);
   const { address } = useWeb3ModalAccount();
-  
+
   const approveTransaction = async () => {
     setTxInit(true);
     approve(address, amount, currency)
@@ -55,21 +55,28 @@ const Approve: React.FC = () => {
             </button>
           </div>
         ) : txHash ? (
-          <p>
-            Transaction is being processed. You can view your transaction
-            <a
-              href={`https://goerli.etherscan.io/tx/${txHash}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              here
-            </a>
-          </p>
+          <>
+            <p className="tx-info">Transaction is being processed.</p>
+            <p className="tx-info">
+              {" "}
+              You can view your transaction
+              <a
+                href={`https://goerli.etherscan.io/tx/${txHash}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="tx-info-link"
+              >
+                here
+              </a>
+            </p>
+          </>
         ) : (
-          <p>Confirm transaction in your wallet to proceed.</p>
+          <p className="tx-info">
+            Confirm transaction in your wallet to proceed.
+          </p>
         )
       ) : (
-        <p>Congratulations.</p>
+        <p className="tx-info">Congratulations.</p>
       )}
     </>
   );
