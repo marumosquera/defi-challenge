@@ -11,9 +11,8 @@ import { setAmount } from "../../redux/slice/TransactionSlice";
 
 const AmountDisplay = () => {
   const daiBalance = useSelector((state: AppState) => state.wallet.daiBalance);
-  const usdcBalance = useSelector(
-    (state: AppState) => state.wallet.usdcBalance
-  );
+  const usdcBalance = useSelector((state: AppState) => state.wallet.usdcBalance);
+  console.log(usdcBalance)
   const currency = useSelector((state: AppState) => state.transaction.currency);
   const dispatch = useDispatch();
 

@@ -24,7 +24,7 @@ export const fetchDaiBalance = createAsyncThunk<number, { walletAddress: string;
         throw new Error("Contract not initialized");
       }
       const balanceBig = await contract.balanceOf(walletAddress);
-      const balanceInEther = ethers.utils.formatEther(balanceBig);
+      const balanceInEther = ethers.utils.formatUnits(balanceBig, 6);
       return parseFloat(balanceInEther); 
     }
   );
