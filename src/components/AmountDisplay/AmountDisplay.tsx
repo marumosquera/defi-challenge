@@ -19,7 +19,7 @@ const AmountDisplay = () => {
 
   const isValidAmount = (input: string): boolean => {
     const number = parseFloat(input);
-    return !isNaN(number) && number > 0;
+    return !isNaN(number) && number >= 0;
   };
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
