@@ -28,7 +28,7 @@ const NavBar = () => {
 
   //detect network
   useEffect(() => {
-    if (chainId !== 5) {
+    if (chainId && chainId !== 5) {
       toast.error("Wrong network, please change to goerli");
     }
   }, [chainId]);
