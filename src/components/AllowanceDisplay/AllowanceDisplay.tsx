@@ -1,5 +1,3 @@
-import React from "react";
-
 //redux
 import { useSelector } from "react-redux";
 import { AppState } from "../../redux/store";
@@ -15,7 +13,7 @@ const AllowanceDisplay = () => {
   return (
     <div>
       <span>
-        allowance:
+        allowance: 
         {currency === "DAI"
           ? daiAllowance
           : currency === "USDC"

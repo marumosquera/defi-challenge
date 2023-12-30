@@ -1,28 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { ethers } from "ethers";
 
-//components
+// components
 import TokenInput from "../TokenInput/TokenInput";
 
-//styles
+// styles
 import "./AmountDisplay.scss";
 
-//redux
+// redux
 import { useSelector, useDispatch } from "react-redux";
 import { AppState } from "../../redux/store";
 import { setAmount } from "../../redux/slice/TransactionSlice";
 
 const AmountDisplay = () => {
+  const [amountError, setAmountError] = useState("");
   const daiBalance = useSelector((state: AppState) => state.wallet.daiBalance);
-  const usdcBalance = useSelector(
-    (state: AppState) => state.wallet.usdcBalance
-  );
+  const usdcBalance = useSelector((state: AppState) => state.wallet.usdcBalance);
   const currency = useSelector((state: AppState) => state.transaction.currency);
   const dispatch = useDispatch();
 
+  const getBalance = () => (currency === "DAI" ? daiBalance : usdcBalance);
+
   const isValidAmount = (input: string): boolean => {
+    if (input === "") {
+      setAmountError("");
+      return false; 
+    }
+
     const number = parseFloat(input);
-    return !isNaN(number) && number >= 0;
+    if (isNaN(number) || number < 0) {
+      setAmountError("Amount cannot be negative");
+      return false;
+    } else if (number > getBalance()) {
+      setAmountError("Amount exceeds available balance");
+      return false;
+    }
+
+    setAmountError("");
+    return true;
   };
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,26 +55,22 @@ const AmountDisplay = () => {
 
   return (
     <div className="amount-container">
-      <span className="amount-title">select amount</span>
+      <span className="amount-title">Select amount</span>
       <div className="items-amount-container">
         <div>
           <TokenInput />
           <span>
-            balance:
-            {currency === "DAI"
-              ? daiBalance
-              : currency === "USDC"
-              ? usdcBalance
-              : 0}{" "}
+            Balance:
+            {currency === "DAI" ? daiBalance : currency === "USDC" ? usdcBalance : 0}
           </span>
         </div>
         <div className="amount-selection">
           <input
             type="number"
-            placeholder="0.02"
+            placeholder="0.5"
             onChange={handleAmountChange}
           />
-          {/* <button>all balance</button> */}
+          {amountError && <div className="amount-error">{amountError}</div>}
         </div>
       </div>
     </div>
@@ -67,3 +78,4 @@ const AmountDisplay = () => {
 };
 
 export default AmountDisplay;
+

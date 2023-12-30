@@ -13,6 +13,7 @@ import "./TargetAddressInput.scss";
 
 const TargetAddressInput: React.FC = () => {
   const [targetAddressInput, setTargetAddressInput] = useState("");
+  const [addressError, setAddressError] = useState("");
   const dispatch = useDispatch();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,11 +21,17 @@ const TargetAddressInput: React.FC = () => {
     setTargetAddressInput(input);
     if (isValidEthereumAddress(input)) {
       dispatch(setTargetAddress(input));
+      setAddressError("");
+    } else {
+      setAddressError("Invalid Ethereum address format");
+    }
+    if (input === "") {
+      setAddressError("");
+      return false; 
     }
   };
 
   const handleBlur = () => {
-    console.log(targetAddressInput.length);
     if (!isValidEthereumAddress(targetAddressInput)) {
       toast.error("Please check the address");
     }
@@ -32,7 +39,7 @@ const TargetAddressInput: React.FC = () => {
 
   return (
     <div className="target-address-container">
-      <span>target address</span>
+      <span>Target address</span>
       <input
         type="text"
         value={targetAddressInput}
@@ -40,6 +47,7 @@ const TargetAddressInput: React.FC = () => {
         onChange={handleChange}
         onBlur={handleBlur}
       />
+      {addressError && <div className="address-error">{addressError}</div>}
     </div>
   );
 };
