@@ -2,17 +2,13 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setTargetAddress } from "../../redux/slice/TransactionSlice";
 import { toast } from "react-toastify";
-
+import { isValidEthereumAddress } from "../../utils/services";
 //styles
 import "./TargetAddressInput.scss";
 
 const TargetAddressInput: React.FC = () => {
   const [targetAddressInput, setTargetAddressInput] = useState("");
   const dispatch = useDispatch();
-
-  const isValidEthereumAddress = (address: string): boolean => {
-    return address.startsWith("0x") && address.length === 42;
-  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
