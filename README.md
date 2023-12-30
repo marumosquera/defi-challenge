@@ -1,13 +1,15 @@
 # DeFi Challenge
+
 This project presents a user-friendly interface for token management (USDC and DAI). Interacting with the blockchain, connecting user wallets, fetching allowances and balances, and performing token-related transactions.
 
 Deployed frontend: https://defi-challenge-seven.vercel.app/
 
 ## allowance
+
 ![Gif funcionamiento](/readmeAssets/allowance.gif)
 
-
 ## transfer
+
 ![Gif funcionamiento](/readmeAssets/transfer.mov)
 
 ## Keypoints
@@ -37,11 +39,12 @@ Deployed frontend: https://defi-challenge-seven.vercel.app/
 
 <div>
   <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original-wordmark.svg" title="React" alt="React" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
+  <img src="https://user-images.githubusercontent.com/25181517/192158956-48192682-23d5-4bfc-9dfb-6511ade346bc.png"  title="Sass" alt="Sass" width="40" height="40"/>&nbsp;
+  <img src="https://user-images.githubusercontent.com/25181517/183890598-19a0ac2d-e88a-4005-a8df-1ee36782fde1.png" title="Typescript" alt="Typescript" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original-wordmark.svg" title="NodeJS" alt="NodeJS" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original-wordmark.svg" title="Git" **alt="Git" width="40" height="40"/>
+    <img src="https://user-images.githubusercontent.com/25181517/187896150-cc1dcb12-d490-445c-8e4d-1275cd2388d6.png" title="Redux" **alt="Redux" width="40" height="40"/>
+    <img src="https://user-images.githubusercontent.com/25181517/187955005-f4ca6f1a-e727-497b-b81b-93fb9726268e.png" title="Jest" **alt="Jest" width="40" height="40"/>
 </div>
 
 ## How to run this repo
