@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+# DeFi Challenge
+This project presents a user-friendly interface for token management (USDC and DAI). Interacting with the blockchain, connecting user wallets, fetching allowances and balances, and performing token-related transactions.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Deployed frontend: https://defi-challenge-seven.vercel.app/
 
-## Available Scripts
+## allowance
+![Gif funcionamiento](/readmeAssets/allowance.gif)
 
-In the project directory, you can run:
 
-### `npm start`
+## transfer
+![Gif funcionamiento](/readmeAssets/transfer.mov)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Keypoints
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Connect wallet - detecting if the correct network has been connected (goerli)
+2. Fetch balances of DAI and USDC tokens and display them in a human way
+3. Has 2 buttons for each token: APPROVE and TRANSFER
+4. Has an input for target wallet address and amount of tokens
+5. Has some validations in place and notify pop up when errors show up
 
-### `npm test`
+## How it works
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Token Data Fetch (ballance and allowance)
 
-### `npm run build`
+![Gif funcionamiento](/readmeAssets/DAIData.png)
+![Gif funcionamiento](/readmeAssets/USDCData.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Jest simple testing
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Gif funcionamiento](/readmeAssets/addressTesting.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Invalid Address input
 
-### `npm run eject`
+![Gif funcionamiento](/readmeAssets/notifyInvalidAddress.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Tech stack
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<div>
+  <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original-wordmark.svg" title="React" alt="React" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original-wordmark.svg" title="NodeJS" alt="NodeJS" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original-wordmark.svg" title="Git" **alt="Git" width="40" height="40"/>
+</div>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## How to run this repo
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. git clone
+2. npm install
+3. npm run start
 
-## Learn More
+To test the app you can use MetaMask extension, connect with any Goerli account and fund it from faucet: https://goerlifaucet.com
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Deployment links
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Deploy frontend: https://defi-challenge-seven.vercel.app/
+
+Thanks!
+
+![Gif funcionamiento](/readmeAssets/WonderlandCheshireCar.webp)
