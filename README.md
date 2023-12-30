@@ -51,6 +51,10 @@ Deployed frontend: https://defi-challenge-seven.vercel.app/
 
 To test the app you can use MetaMask extension, connect with any Goerli account and fund it from faucet: https://goerlifaucet.com
 
+Goerli ERC20 contracts
+- 0x1D70D57ccD2798323232B2dD027B3aBcA5C00091 [DAI]
+- 0xC891481A0AaC630F4D89744ccD2C7D2C4215FD47 [USDC]
+
 ## Deployment links
 
 Deploy frontend: https://defi-challenge-seven.vercel.app/

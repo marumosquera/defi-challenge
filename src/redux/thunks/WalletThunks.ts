@@ -18,7 +18,7 @@ export const fetchDaiBalance = createAsyncThunk<
 export const fetchUsdcBalance = createAsyncThunk<
   number,
   { walletAddress: string; token: Token }
->("wallet/fetchUsdcBalance", async ({ walletAddress, token }, thunkAPI) => {
+>("wallet/fetchUsdcBalance", async ({ walletAddress, token }) => {
   const contract = initContracts(token);
   if (!contract) {
     throw new Error("Contract not initialized");
@@ -33,7 +33,7 @@ export const fetchDaiAllowance = createAsyncThunk<
   { walletAddress: string; address: string; token: Token }
 >(
   "wallet/fetchDaiAllowance",
-  async ({ walletAddress, address, token }, thunkAPI) => {
+  async ({ walletAddress, address, token }) => {
     const contract = initContracts(token);
     if (!contract) {
       throw new Error("Contract not initialized");
@@ -50,7 +50,7 @@ export const fetchUsdcAllowance = createAsyncThunk<
   { walletAddress: string; address: string; token: Token }
 >(
   "wallet/fetchUsdcAllowance",
-  async ({ walletAddress, address, token }, thunkAPI) => {
+  async ({ walletAddress, address, token }) => {
     const contract = initContracts(token);
     if (!contract) {
       throw new Error("Contract not initialized");
