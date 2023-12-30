@@ -6,11 +6,7 @@ Deployed frontend: https://defi-challenge-seven.vercel.app/
 
 ## allowance
 
-![Gif funcionamiento](/readmeAssets/allowance.gif)
-
-## transfer
-
-![Gif funcionamiento](/readmeAssets/transfer.mov)
+![Allowance](/readmeAssets/allowance.gif)
 
 ## Keypoints
 
@@ -24,16 +20,16 @@ Deployed frontend: https://defi-challenge-seven.vercel.app/
 
 ### Token Data Fetch (ballance and allowance)
 
-![Gif funcionamiento](/readmeAssets/DAIData.png)
-![Gif funcionamiento](/readmeAssets/USDCData.png)
+![DAI](/readmeAssets/DAIData.png)
+![USDC](/readmeAssets/USDCData.png)
 
 ### Jest simple testing
 
-![Gif funcionamiento](/readmeAssets/addressTesting.png)
+![Testing](/readmeAssets/addressTesting.png)
 
 ### Invalid Address input
 
-![Gif funcionamiento](/readmeAssets/notifyInvalidAddress.png)
+![InvalidAddress](/readmeAssets/notifyInvalidAddress.png)
 
 ## Tech stack
 
@@ -61,4 +57,4 @@ Deploy frontend: https://defi-challenge-seven.vercel.app/
 
 Thanks!
 
-![Gif funcionamiento](/readmeAssets/WonderlandCheshireCar.webp)
+![Wonderland](readmeAssets/Wonderland.png)
